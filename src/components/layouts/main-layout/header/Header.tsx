@@ -6,9 +6,11 @@ import { PropsWithChildren } from 'react'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import toast from 'react-hot-toast'
+import { useAuth } from '@/components/context/AuthContext'
 
 export function Header() {
 	const pathname = usePathname()
+	const { token } = useAuth()
 
 	const isOnProductDetails = pathname.startsWith('/product/') && !pathname.endsWith('/edit')
 	const isOnEditProduct = pathname.includes('/edit')
@@ -28,6 +30,9 @@ export function Header() {
 				<Item
 					href={pathname === PUBLIC_URL.register() ? PUBLIC_URL.register() : PUBLIC_URL.login()}
 					isActive={pathname === PUBLIC_URL.login() || pathname === PUBLIC_URL.register()}
+					onClick={() => {
+						if (token) toast.error('You are already logged in.')
+					}}
 				>
 					{pathname === PUBLIC_URL.register() ? 'Register' : 'Login'}
 				</Item>
