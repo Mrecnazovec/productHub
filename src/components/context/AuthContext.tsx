@@ -1,6 +1,5 @@
 'use client'
 
-import { PROTECTED_URL, PUBLIC_URL } from '@/config/url.config'
 import { authService } from '@/services/auth.service'
 import { AuthResponse, User } from '@/shared/types/auth.interface'
 import { useRouter } from 'next/navigation'
@@ -32,7 +31,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 		const data = await authService.login(email, password)
 		setUser(data.user)
 		setToken(data.token)
-		router.push(PROTECTED_URL.dashboard())
+		router.refresh()
 		return data
 	}
 
@@ -40,7 +39,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 		const data = await authService.register(name, email, password)
 		setUser(data.user)
 		setToken(data.token)
-		router.push(PROTECTED_URL.dashboard())
+		router.refresh()
 		return data
 	}
 
@@ -48,7 +47,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 		authService.logout()
 		setUser(null)
 		setToken(null)
-		router.push(PUBLIC_URL.login())
+		router.refresh()
 	}
 
 	return <AuthContext.Provider value={{ user, token, login, register, logout }}>{children}</AuthContext.Provider>

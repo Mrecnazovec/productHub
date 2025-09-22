@@ -21,7 +21,7 @@ import { useDeleteProduct } from '@/hooks/useDeleteProduct'
 export function EditProduct() {
 	const param = useParams<{ id: string }>()
 	const { product, isLoading } = useGetProduct()
-	const { deleteProduct, isPending: isDeleting } = useDeleteProduct()
+	const { deleteProduct } = useDeleteProduct()
 
 	const { updateProduct, isPending } = useUpdateProduct()
 

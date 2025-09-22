@@ -6,7 +6,6 @@ import { PropsWithChildren } from 'react'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import toast from 'react-hot-toast'
-import { ThemeToggle } from '@/components/ui/ThemeToggleButton'
 
 export function Header() {
 	const pathname = usePathname()

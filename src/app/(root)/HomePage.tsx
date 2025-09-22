@@ -9,6 +9,6 @@ export function HomePage() {
 
 	useEffect(() => {
 		router.push(PUBLIC_URL.login())
-	}, [])
+	}, [router])
 	return <div></div>
 }

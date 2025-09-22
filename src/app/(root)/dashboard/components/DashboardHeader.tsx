@@ -6,8 +6,7 @@ import { Button } from '@/components/ui/Button'
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/Dialog'
 import { Plus } from 'lucide-react'
 import { useAuth } from '@/components/context/AuthContext'
-import { useRouter } from 'next/navigation'
-import { PROTECTED_URL, PUBLIC_URL } from '@/config/url.config'
+import { PROTECTED_URL } from '@/config/url.config'
 import Link from 'next/link'
 import { Loader } from '@/components/ui/Loader'
 
@@ -18,7 +17,6 @@ interface DashboardHeaderProps {
 
 export function DashboardHeader({ search, setSearch }: DashboardHeaderProps) {
 	const { user, logout } = useAuth()
-	const router = useRouter()
 
 	return (
 		<div className='mb-8'>
