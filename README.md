@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ProductHub
 
-## Getting Started
+ProductHub — это техническое задание, реализованное с использованием **Next.js 15**, **React 19**, **TypeScript** и библиотеки компонентов **shadcn/ui**.  
+Приложение представляет собой **панель управления продуктами (Dashboard)** с поддержкой авторизации, CRUD-операций и динамических характеристик товаров.
 
-First, run the development server:
+---
+
+## Стек технологий
+
+### Frontend
+
+- **Next.js 15** (App Router, Server/Client components, middleware)
+- **React 19**
+- **TypeScript**
+- **React Hook Form** (валидация форм, работа с динамическими массивами полей)
+- **@tanstack/react-table** (таблицы, пагинация, поиск, фильтрация)
+- **shadcn/ui** (UI-компоненты)
+- **Tailwind CSS**
+
+## Основные возможности
+
+### Авторизация и регистрация
+
+- Регистрация и вход в систему.
+- Валидация форм:
+  - email — корректный формат;
+  - пароль — минимум 6 символов.
+- Защита маршрутов через **middleware**.
+- Редирект в зависимости от статуса пользователя.
+- Toast-уведомления при ошибках и выходе из системы.
+
+### Управление продуктами
+
+- **Таблица продуктов**:
+  - пагинация;
+  - поиск по имени;
+  - действия (просмотр, редактирование, удаление).
+- **Страница продукта**:
+  - отображение базовых данных;
+  - динамический вывод **Product Specifications** (любые ключ/значение);
+  - удаление продукта с подтверждением.
+- **Создание продукта**:
+  - обязательные поля: `name`, `description`, `price`, `stock`, `category`, `status`;
+  - возможность добавлять кастомные характеристики (`specs`).
+- **Редактирование продукта**:
+  - автоматическое заполнение формы данными продукта;
+  - изменение всех полей и характеристик.
+
+### UI и удобство
+
+- Современный интерфейс на **shadcn/ui**.
+- Breadcrumb-навигация.
+- Профиль пользователя в шапке.
+- Диалоги для подтверждения действий.
+- Адаптивная верстка.
+- Поддержка светлой/тёмной темы.
+
+### SEO
+
+- Метаданные для страниц (title, description, keywords).
+- Динамический title/description на страницах продуктов.
+- Отключение индексации для страниц авторизации.
+
+---
+
+## Структура проекта
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+project/
+├── client-side/
+│   ├── src/
+│   │   ├── app/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   ├── shared/
+│   │   └── config/
+│   └── ...
+└──
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
