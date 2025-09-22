@@ -59,7 +59,7 @@ export function CreateProduct() {
 					<form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-6'>
 						<div>
 							<Label className='mb-2'>Name</Label>
-							<Input required {...register('name')} placeholder='Product name' />
+							<Input minLength={3} maxLength={100} required {...register('name')} placeholder='Product name' />
 						</div>
 						<div>
 							<Label className='mb-2'>Description</Label>
