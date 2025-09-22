@@ -20,11 +20,6 @@ export function DashboardHeader({ search, setSearch }: DashboardHeaderProps) {
 	const { user, logout } = useAuth()
 	const router = useRouter()
 
-	function logoutSystem() {
-		logout()
-		router.push(PUBLIC_URL.login())
-	}
-
 	return (
 		<div className='mb-8'>
 			<div className='bg-card py-4 shadow-lg'>
@@ -67,7 +62,7 @@ export function DashboardHeader({ search, setSearch }: DashboardHeaderProps) {
 												<DialogClose asChild>
 													<Button variant='outline'>Cancel</Button>
 												</DialogClose>
-												<Button type='button' variant={'danger'} onClick={logoutSystem}>
+												<Button type='button' variant={'danger'} onClick={logout}>
 													Logout
 												</Button>
 											</DialogFooter>
