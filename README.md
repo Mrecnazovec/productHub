@@ -77,3 +77,8 @@ project/
 │   └── ...
 └──
 ```
+
+## Запуск проекта
+yarn install
+yarn build
+yarn start
