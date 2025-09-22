@@ -36,11 +36,13 @@ export function DashboardHeader({ search, setSearch }: DashboardHeaderProps) {
 					</div>
 					<div className='md:order-2 order-1'>
 						{!user ? (
-							<Loader />
+							<div className='w-full flex items-center justify-center'>
+								<Loader />
+							</div>
 						) : (
 							<div className='flex flex-col gap-4 max-sm:mb-8'>
 								<div className='flex items-center gap-4'>
-									<div className='size-12 bg-gradient-to-br from-main to-secondary rounded-full flex items-center justify-center text-white text-lg'>
+									<div className='size-12 bg-gradient-to-br from-main to-secondary rounded-full flex items-center justify-center text-white text-lg aspect-square object-cover'>
 										{user.name.slice(0, 2).toUpperCase()}
 									</div>
 									<div className='mr-auto'>
