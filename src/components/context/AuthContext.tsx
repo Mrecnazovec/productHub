@@ -31,7 +31,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 		const data = await authService.login(email, password)
 		setUser(data.user)
 		setToken(data.token)
-		router.refresh()
+		setTimeout(() => {
+			router.refresh()
+		}, 2000)
 		return data
 	}
 
@@ -39,7 +41,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 		const data = await authService.register(name, email, password)
 		setUser(data.user)
 		setToken(data.token)
-		router.refresh()
+		setTimeout(() => {
+			router.refresh()
+		}, 2000)
 		return data
 	}
 
@@ -47,7 +51,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 		authService.logout()
 		setUser(null)
 		setToken(null)
-		router.refresh()
+		setTimeout(() => {
+			router.refresh()
+		}, 2000)
 	}
 
 	return <AuthContext.Provider value={{ user, token, login, register, logout }}>{children}</AuthContext.Provider>
